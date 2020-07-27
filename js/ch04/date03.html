@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날짜 객체</title>
+</head>
+<body>
+    <script>
+        var date1 = new Date(); // 시스템의 날짜
+        var date2 = new Date(2020, 11, 31); // 2020년 12월 31일
+
+        document.write(date1 + "<br>");
+        document.write(date1.toGMTString() + "<br>");
+        // 지역별 스타일로 날짜 출력
+        document.write(date1.toLocaleString() + "<br>"); 
+
+        // 1970년 1월 1일부터의 시간을 millisecond로 표현
+        var d1 = date1.getTime();
+        document.write(d1 + "ms<br>");
+        document.write(d1/1000 + "초<br>");
+        document.write(d1/1000/60 + "분<br>");
+        document.write(d1/1000/60/60 + "시<br>");
+        document.write(d1/1000/60/60/24 + "일<br>");
+        document.write("<hr>");
+        document.write("<h2>오늘부터 2020년 12월 31일까지 남은 일수</h2>");
+
+        var startTime = date1.getTime();
+        var endTime = date2.getTime();
+
+        var resultTime = endTime - startTime;
+        document.write("남은 일수 : " + resultTime/1000/60/60/24 + "일<br>");
+        document.write("남은 일수 : " + resultTime/1000/60/60 + "시간<br>");
+    </script>
+</body>
+</html>

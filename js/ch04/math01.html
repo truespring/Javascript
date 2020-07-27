@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수학 객체</title>
+</head>
+<body>
+    <script>
+        // Math 객체 사용 방법
+        document.write(Math.abs(-10) + "<br>"); // 절대값
+        document.write(Math.max(2, 3, "6", 1) + "<br>"); // 최댓값
+        document.write(Math.min(2, 3, "6", 1) + "<br>"); // 최솟값
+        document.write(Math.pow(2, 3) + "<br>"); // 거듭제곱
+        document.write(Math.random()*10 + "<br>"); // 랜덤값
+        document.write(parseInt(Math.random()*11) + "<br>"); // 0~10 랜덤값
+        document.write(parseInt((Math.random()*10)+1) + "<br>"); // 0~10 랜덤값
+
+        // 범위 사이의 난수 : -20~20 사이의 난수
+        var rn1 = parseInt(Math.random()*(20-(-20)+1) + (-20));
+        document.write(rn1 + "<br>");
+
+        document.write(Math.round(337.257788) + "<br>"); // 소수점 1번째 자리에서 반올림
+        document.write(Math.round(337.557788) + "<br>");
+
+        document.write(Math.ceil(337.257788) + "<br>"); // 소수점 1번째 자리에서 올림
+        document.write(Math.floor(337.257788) + "<br>"); // 소수점 1번째 자리에서 내림
+
+        document.write(Math.sqrt(9) + "<br>"); // 루트
+        document.write(Math.PI); // 원주율
+    </script>
+</body>
+</html>

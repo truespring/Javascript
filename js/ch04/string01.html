@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열 객체</title>
+</head>
+<body>
+    <script>
+        var s1 = "Hello Javascript World! Javascript";
+
+        // charAt() : 인덱스에 해당하는 한 문자를 출력
+        document.write(s1.charAt(6)+ "<br>");
+        document.write(s1.charAt(0)+ "<br>");
+        document.write(s1.charAt(5)+ "<br>");
+        document.write(s1.charAt(2)+ "<br>");
+
+        // indexOf() : 해당하는 문자(문자열)의 인덱스 번호를 출력
+        document.write(s1.indexOf("J") + "<br>");
+        document.write(s1.indexOf("Java") + "<br>");
+        document.write(s1.indexOf("java") + "<br>"); // 해당하는 문자가 없을 경우 -1을 반환
+    
+        // lastIndexOf() : 문자(문자열)에 해당하는 마지막 인덱스 번호를 출력
+        document.write(s1.lastIndexOf("Java") + "<br>");
+    
+        // match() : 제일 먼저 찾은 문자열을 출력
+        document.write(s1.match("Java") + "<br>");
+        document.write(s1.match("java") + "<br>"); // 해당 문자열이 없을 경우 null을 반환
+
+        // replace("a", "b") : 제일 먼저 찾은 문자열을 새로운 문자열로 바꿔서 생성한단
+        s1.replace("Javascript", "HTML");
+        document.write(s1 + "<br>"); // 바뀌지 않음
+        document.write(s1.replace("Javascript", "HTML") + "<br>");
+        s1 = s1.replace("Javascript", "HTML");
+        document.write(s1 + "<br>");
+        s1 = s1.replace("HTML", "Javascript");
+
+        // serach() : 찾는 문자열과 제일 먼저 일치하는 인덱스 번호를 출력
+        document.write(s1.search("Javascript") + "<br>");
+
+        // slice(i, j) : i부터 j앞 까지 잘라내어 새로운 문자열을 생성하여 출력
+        var s2 = s1.slice(17, 22);
+        document.write(s2 + "<br>");
+        document.write(s1 + "<br>");
+
+        var s2 = s1.slice(4);
+        document.write(s2 + "<br>");
+
+        // substring() :
+        var s3 = s1.substring(17, 22);
+        document.write(s3 + "<br>");
+        document.write(s1 + "<br>");
+
+        var s3 = s1.substring(4);
+        document.write(s3 + "<br>");
+        
+        document.write("<hr>");
+
+        // 음수는 맨끝에서 시작한다
+        var s4 = s1.slice(3, -3);
+        document.write(s4 + "<br>");
+        s4 = s1.slice(-3, 3);
+        document.write(s4 + "<br>");
+
+        // 음수를 0으로 간주한다
+        var s5 = s1.substring(4, 0);
+        document.write(s5 + "<br>");
+        s5 = s1.substring(-3, 3);
+        document.write(s5 + "<br>");
+
+        s5 = s1.substring(20, 10);
+        document.write(s5 + "<br>");
+        s5 = s1.substring(10, 20);
+        document.write(s5 + "<br>");
+        s5 = s1.substring(-1, 2);
+        document.write(s5 + "<br>");
+
+    </script>
+</body>
+</html>
