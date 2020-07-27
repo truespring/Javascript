@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 문제 2</title>
+    <!-- 
+        테이블을 활용하여 1~10까지의 제곱, 세제곱, 네제곱을 출력하는 프로그램
+     -->
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 600px;
+        }
+
+        .wrapper {
+            height: 60%;
+            width: 70%;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            position: absolute;
+            background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+            background-size: 1800% 1800%;
+            z-index: -2;
+
+            -webkit-animation: rainbow 18s ease infinite;
+            -z-animation: rainbow 18s ease infinite;
+            -o-animation: rainbow 18s ease infinite;
+            animation: rainbow 18s ease infinite;
+        }
+
+        @-webkit-keyframes rainbow {
+            0% {
+                background-position: 0% 82%
+            }
+
+            50% {
+                background-position: 100% 19%
+            }
+
+            100% {
+                background-position: 0% 82%
+            }
+        }
+
+        @-moz-keyframes rainbow {
+            0% {
+                background-position: 0% 82%
+            }
+
+            50% {
+                background-position: 100% 19%
+            }
+
+            100% {
+                background-position: 0% 82%
+            }
+        }
+
+        @-o-keyframes rainbow {
+            0% {
+                background-position: 0% 82%
+            }
+
+            50% {
+                background-position: 100% 19%
+            }
+
+            100% {
+                background-position: 0% 82%
+            }
+        }
+
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 82%
+            }
+
+            50% {
+                background-position: 100% 19%
+            }
+
+            100% {
+                background-position: 0% 82%
+            }
+        }
+
+        th {
+            border: 5px dotted pink;
+            padding: 10px;
+            width: 125px;
+            height: 30px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        document.write("<table><div class='wrapper'><thead>");
+        document.write("<tr><th>n</th>");
+        document.write("<th>n<sup></sup>2</th>");
+        document.write("<th>n<sup></sup>3</th>");
+        document.write("<th>n<sup></sup>4</th></tr></thead>");
+        for (var i = 1; i <= 10; i++) {
+            var cnt = 1;
+            document.write("<tr>");
+            for (var j = 1; j <= 4; j++) {
+                document.write("<th>" + (i * cnt) + "</th>");
+                cnt *= i;
+            }
+        }
+        document.write("</div></table>");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 문제 2</title>
+    <!-- 
+        1. 입력창으로부터 가위/바위/보 중에 입력받아서 브라우저 화면에
+        해당 이미지를 출력하는 프로그램
+        결과 : 가위를 입력하셨습니다.
+        가위 이미지
+     -->
+</head>
+<body>
+    <h3>가위 바위 보!</h3>
+    <script>
+        var choose = prompt("가위 바위 보 중 하나를 입력하세요.");
+        if(choose == '가위'){
+            document.write('<img src="images/math_img_1.jpg"><br>' + "가위를 입력하셨습니다.");
+        } else if(choose == '바위'){
+            document.write('<img src="images/math_img_2.jpg"><br>' + "바위를 입력하셨습니다.");
+        } else if(choose == '보'){
+            document.write('<img src="images/math_img_3.jpg"><br>' + "보를 입력하셨습니다.");
+        }
+    </script>
+</body>
+</html>

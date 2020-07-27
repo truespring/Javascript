@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 문제 3</title>
+    <!-- 
+        12개의 탄생석 이미지를 3행 4열 테이블에 출력하시오
+        - 이미지 밑에 월/탄생석/상징을 나타내는 문자열을 출력하시오
+
+        테이블을 사용하지 않고 div로 묶어 출력하시오
+     -->
+    <style>
+        .container {
+            width: 1000px; margin: 30px auto; text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+        table {
+            border: 3px solid white; padding: 5px; width: 100%;
+        }
+        td {
+            border: 1px solid black; height: 200px; width: 25%;
+            background: linear-gradient(to bottom, white, rgb(77, 151, 77));
+        }
+        p {
+            font-size: 0.8em;
+        }
+        .box {
+           border: 2px dotted green; background-color: rgba(9, 8, 7, 0.1);
+           height: 840px;
+        }
+        .row {
+            padding: 18px; height: 30%;
+        }
+        .stone {
+            display: inline-block; padding: 12px; width: 21%;
+            border: 1px solid black; margin: 5px;
+        }
+        .stone:hover {
+            background-color: rgba(100, 0, 0, 0.3); font-weight: bold;
+            box-shadow: rgba(10, 20, 30) 2px 2px 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>월별 탄생석과 상징</h2>
+        <script>
+            var stones = [
+                "1월 / 가넷 / 사랑,진실",
+                "2월 / 자수정 / 평화,성실",
+                "3월 / 아쿠아마린 / 총명,용감",
+                "4월 / 다이아몬드 / 영원한사랑",
+                "5월 / 에메랄드 / 행복,행운",
+                "6월 / 진주 / 건강,부귀",
+                "7월 / 루비 / 영원한생명,열정,용기",
+                "8월 / 감람석 / 지혜,부부의행복",
+                "9월 / 사파이어 / 지혜,불변",
+                "10월 / 오팔 / 희망,순결",
+                "11월 / 토파즈 / 우정,인내",
+                "12월 / 터키석 / 성공,승리"
+            ];
+            var cnt = 1;
+            var month = 0;
+
+            // 테이블 활용
+            // document.write("<table>");
+            // for (var i = 1; i <= 3; i++) {
+            //     document.write("<tr>");
+            //     for (var j = 1; j <= 4; j++) {
+            //         document.write("<td><img src=stone/stone0" + (cnt++) + ".png><br>");
+            //         document.write("<p>" + stones[month++] + "</p></td>");
+            //     }
+            //     document.write("</tr>");
+            // }
+            // document.write("</table>");
+
+            // div 활용
+            var cnt = 1;
+            var month = 0;
+
+            document.write("<div class=box>");
+            for (var i = 1; i <= 3; i++) {
+                document.write("<div class=row>");
+                for (var j = 1; j <= 4; j++) {
+                    document.write("<div class=stone><img src=stone/stone0" + (cnt++) + ".png><br>");
+                    document.write("<p>" + stones[month++] + "</p></div>");
+                }
+                document.write("</div>");
+            }
+            document.write("</div>");
+            
+        </script>
+    </div>
+</body>
+
+</html>

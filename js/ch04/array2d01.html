@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열</title>
+    <!-- 
+        각 행별로 총점과 평균을 구하여 출력하시오
+     -->
+     <style>
+        .container {
+            background-color: rgba(10, 10, 10, 0.1);
+            margin: 0 auto; width: 200px;
+        }
+        p {
+            color : green; padding: 10px;
+            text-align: center;
+        }
+        h1 { 
+            text-align: center; color: rgba(10, 190, 100, 0.4);
+        }
+     </style>
+</head>
+<body>
+    <script>
+        // 2차원 배열을 만드는 방법 1
+        // var score = [
+        //     [95, 88, 76, 64, 73],       // 1반
+        //     [78, 63, 57, 92],           // 2반 
+        //     [77, 82, 67, 63, 81, 82],   // 3반
+        // ];
+        var score = new Array(
+            Array(95, 88, 76, 64, 73),
+            Array(78, 63, 57, 92),
+            Array(77, 82, 67, 63, 81, 82),
+        );
+        document.write("<div class=container><h1>for문</h1>");
+        for(var i = 0; i < score.length; i++){
+            var tot = 0;
+            var ave = 0;
+            for(var j = 0; j < score[i].length; j++ ){
+                tot += score[i][j];
+            }
+            ave = tot/score[i].length;
+            document.write("<br><p>" + (i+1) + "반 총점 : " + tot);
+            document.write("<br>평균 : " + ave.toFixed(2) + "<p><br>");
+            document.write("----------------------<br>");
+        }
+        document.write("</div>");
+
+        document.write("<div class=container><h1>for-in문</h1>");
+        for(var i in score){
+            var tot = 0;
+            var ave = 0;
+            for(var j in score[i]){
+                tot += score[i][j];
+            }
+            ave = tot/score[i].length;
+            document.write("<br><p>" + (Number(i) + 1) + "반 총점 : " + tot);
+            document.write("<br>평균 : " + ave.toFixed(2) + "<p><br>");
+            document.write("----------------------<br>");
+        }
+        document.write("</div>");
+    </script>
+</body>
+</html>

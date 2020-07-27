@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam03</title>
+    <!-- 
+        1. 확인창으로부터 메세지를 전달받아 전등의 점등/소등을 여부를 변수에 저장
+        2. 그 값으로부터 전등의 점등/소등 여부를 브러우저화면에 메세지와 함께 이미지를 출력
+     -->
+     <style>
+        img { width: 100px; height: 100px;}
+    </style>
+</head>
+<body>
+    <script>
+        var light = confirm("전원을 켜시겠습니까?");
+        var on = "점등";
+        var off = "소등";
+        
+        if(light == true){
+            document.write('<img src="images/lighton.png"><br>' + on);
+        } else{
+            document.write('<img src="images/lightoff.png"><br>' + off);
+        }
+    </script>
+</body>
+</html>

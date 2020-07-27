@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1. 1분기:1200, 2분기:1300, 3분기 1000으로 판매량이 정해져 있고, 
+            -q1 q2 q3 q4
+        입력창으로 부터 4분기 판매량을 입력받아서
+        1,2,3 분기의 평균판매량 보다 많으며 "판매량이 평균이상입니다. "
+        아니면 "평균미만입니다. " -->
+</head>
+<body>
+    <script>
+        var q1 = 1200;
+        var q2 = 1300;
+        var q3 = 1000;
+        var q4 = prompt("4분기 판매량을 입력하세요.");
+        var sum = q1 + q2 + q3;
+        var nQ4 = Number(q4);
+        if(nQ4 > sum){
+            document.write("판매량이 평균 이상입니다.");
+        } else {
+            document.write("판매량이 평균 미만입니다.")
+        }
+    </script>
+</body>
+</html>

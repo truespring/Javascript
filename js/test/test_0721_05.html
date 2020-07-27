@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 문제 5</title>
+    <!-- 
+        입력창으로부터 정수를 입력받아서 입력받은 후에 팩토리얼을 출력
+        입력 : 정수 입력 : 5
+        출력 : 5! = 5 * 4 * 3 * 2 * 1 = 120
+     -->
+</head>
+<body>
+    <script>
+        var num = Number(prompt("정수를 입력하세요."));
+        var i, tot = 1;
+
+        document.write(num + "! = ");
+        for(i = num; i > 0; i--){
+            document.write(i);
+            tot *= i;
+            if(i != 1){
+                document.write(" * ");
+            }
+        }
+        document.write(" = " + tot);
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 문제 2</title>
+    <!-- 
+        국어, 영어, 수학 점수를 입력받아 평균과 학점을 구하는 프로그램
+        입력 : 국어점수 입력, 영어점수 입력, 수학점수 입력
+        출력 : 평균 출력, 학점은 평균에 따라 A, B, C, D, E, F
+        제약사항 switch ~ case문으로 작성
+     -->
+</head>
+<body>
+    <script>
+        var ko = Number(prompt("국어점수를 입력하세요"));
+        var en = Number(prompt("영어점수를 입력하세요"));
+        var ma = Number(prompt("수학점수를 입력하세요"));
+        var sum = ko + en + ma;
+        var avg = sum/3;
+        var grade = parseInt(avg/10);
+        switch(grade){
+        case 10: case 9:
+            document.write("평균점수 : " + avg + " 학점 : A");
+            break;
+        case 8:
+            document.write("평균점수 : " + avg + " 학점 : B");
+            break;
+        case 7:
+            document.write("평균점수 : " + avg + " 학점 : C");
+            break;
+        case 6:
+            document.write("평균점수 : " + avg + " 학점 : D");
+            break;
+        default :
+            document.write("평균점수 : " + avg + " 학점 : F");
+            break;
+        }
+    </script>
+</body>
+</html>

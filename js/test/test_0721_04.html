@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 문제 4</title>
+    <!-- 
+        입력창으로부터 정수를 입력받아서 출력하는 프로그램
+        입력 : 정수 입력 : 10
+        출력 : 1에서 부터 입력받은 정수까지 출력, 홀수일 때는 글자색을 빨간색, 
+        짝수일 때는 글자색을 파란색
+     -->
+     <style>
+         div {
+             display: inline;
+         }
+         .even {
+             color: blue;
+         }
+         .odd {
+             color: red;
+         }
+     </style>
+</head>
+<body>
+    <script>
+        var num = Number(prompt("정수를 입력하세요."));
+        var i = 1;
+        // for(i = 1; i <= num; i++){
+        //     if(i % 2 == 0){
+        //         document.write("<div class=even> " + i + " </div>");
+        //     } else {
+        //         document.write("<div class=odd> " + i + " </div>");
+        //     }
+        // }
+
+        while(i <= num){
+            if(i % 2 == 0){
+                document.write("<div class=even> " + i + " </div>");
+                console.log(i);
+            } else {
+                document.write("<div class=odd> " + i + " </div>");
+            }
+            i++;
+        }
+    </script>
+</body>
+</html>

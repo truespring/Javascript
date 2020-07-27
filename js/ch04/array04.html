@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열의 활용</title>
+    <!-- 
+        학생 2차원 배열의 정보를 출력하시오
+        총점, 평균(소수점 2번째자리)를 기말고사 뒤에 출력하시오
+     -->
+     <style>
+         table {
+             margin: 0 auto;
+             border: 1px solid white; width: 500px; 
+             background-color: rgba(20, 30, 200, 0.1);
+         }
+         thead {
+             background-color:rgba(80, 30, 100, 0.3);
+         }
+         td {
+             border: 1px dotted blue; text-align: center;
+             padding: 10px; height: 30px;
+         }
+         caption {
+             font-weight: bold; font-size: 2em;
+         }
+     </style>
+</head>
+<body>
+    <script>
+        var student = new Array(
+            Array("석규환", "컴공", 88, 76),
+            Array("이나경", "수학", 70, 83),
+            Array("석유빈", "물리", 92, 95),
+            Array("황병진", "전자", 85, 92),
+            Array("정혜선", "기계", 97, 88),
+        );
+        // doucment.write("<table>");
+        // for(var i = 0; i < student.length; i++){
+        //     document.write("<tr>");
+        //     var tot = 0, ave = 0;
+        //     for(var j = 0; j < student[i].length; j++){
+        //         document.write("<td> " + student[i][j] + "<br></td>");
+        //     }
+        //     document.write("</tr>");
+        // }
+        // doucment.write("</table>");
+        
+        // document.write("<table>");
+        // for(var i in student){
+        //     var tot = 0, ave = 0;
+        //     document.write("<tr>");
+        //     for(var j in student[i]){
+        //         document.write("<td>" + student[i][j] + "<br></td>");
+        //     }
+        //     document.write("</tr>");
+        // }
+        // document.write("</table>");
+        
+        document.write("<table>");
+        document.write("<caption>학생 정보</caption>")
+        document.write("<thead><tr><td>이름</td>");
+        document.write("<td>전공</td>");
+        document.write("<td>중간</td>");
+        document.write("<td>기말</td>");
+        document.write("<td>총점</td>");
+        document.write("<td>평균</td></tr></thead>");
+        for (var i = 0; i < student.length; i++) {
+            var tot = 0, ave = 0;
+            document.write("<tr>");
+            for (var j = 0; j < student[i].length; j++) {
+                tot = student[i][2] + student[i][3];
+                ave = tot/2;
+                student[i][4] = tot;
+                student[i][5] = Number(ave.toFixed(2));
+                document.write("<td>" + student[i][j] + "</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("<tr><td colspan='2'>평균</td>");
+        for(var i = 2; i <= student.length; i++){
+            tot = 0, ave = 0;
+            for(var j = 0; j < student.length; j++){
+                tot += student[j][i];
+            }
+            ave = tot/student.length;
+            document.write("<td>" + ave.toFixed(2) + "</td>");
+        }
+        document.write("</tr></table>");
+
+        // 새로운 배열이 추가 되었을 때도 적용할 수 있게 해야한다 지금은 불안정하다
+
+    </script>
+</body>
+</html>

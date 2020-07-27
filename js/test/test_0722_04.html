@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 문제 4</title>
+    <!-- 
+        구구단의 2단부터 9단까지 한번에 브라우저에 출력
+     -->
+     <style>
+         .container {
+            width: 1000px; margin: 20px auto;
+         }
+         h1 {
+             text-align: center; margin-bottom: 30px;
+             text-shadow: red 3px 3px 5px; color: blue;
+         }
+         .dan {
+             display: inline-block; padding-left: 16px; margin: 5px;
+             padding-bottom: 20px; border: 1px solid black;
+             line-height: 2em; background-color: rgba(30, 130, 200, 0.3);
+             width: 95px; box-shadow: navy 1px 1px 2px; 
+         }
+         .dan h2 {
+             color: green; text-align: center; padding-right: 16px;
+         }
+     </style>
+</head>
+<body>
+    <div class="container">
+        <h1>구구단</h1>
+        <script>
+            for(var dan = 2; dan < 10; dan++){
+                    document.write("<div class='dan'><h2>" + dan + "단</h2>");
+                for(var j = 1; j < 10; j++){
+                    document.write(dan + " * " + j + " = " + (dan*j) + "<br>");
+                }
+                document.write("</div>");
+            }
+        </script>
+    </div>
+</body>
+</html>

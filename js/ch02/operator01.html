@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+</head>
+
+<body>
+    <h3>연산자</h3>
+    <p>
+        1. 산술연산자 (+, -, *, /, %)<br>
+        2. 증감연산자 (++, --)<br>
+        - 증가연산자(++) : 변수의 앞 또는 뒤에 붙여 사용, 전위, 후위<br>
+        - 감소연산자(--) : 변수의 앞 또는 뒤에 붙여 사용, 전위, 후위<br>
+        3. 비교(관계)연상자 : <, <=, >, >=, ==, != 값만 비교하여 결과를 알려준다<br>
+        - ===, !== : 자바스크립트에서 추가된 연산자 값과 타입을 한꺼번에 비교하여 결과를 알려준다<br>
+        - 결과가 논리값 형태로 표현, true 또는 false<br>
+        - 우선순위 : (>, >=, <, <=) 연산자가 (==, !=) 보다 우선이다.<br>
+        - 우선순위 : (==, !=) 연산자가 (===, !==)보다 우선이다.<br>
+        4. 논리연산자 : &&(And), ||(Or), !(논리 Not)<br>
+        - 논리연산자의 결과는 논리값(true, false 둘 중의 하나)<br>
+        - 비교연산자가 논리연산자보다 우선이다. 비교 > 논리<br>
+        - 우선수위 : 논리And가 논리Or보다 우선이다.<br>
+        - 우선순위 : ! > && > ||<br>
+        5. 대입연산자 : =<br>
+        - 복합대입연산자(할당연산자, assignment) : +=, -=, *=, /=, %=<br>
+    </p>
+    <script>
+        var a = 30, b = 7, c;
+        c = a + b;
+        console.log("a + b = " + c);
+        c = a - b;
+        console.log("a - b = " + c);
+        c = a * b;
+        console.log("a * b = " + c);
+        c = parseInt(a / b);
+        console.log("a / b = " + c);
+        c = a % b;
+        console.log("a % b = " + c);
+
+        console.log(++a);
+        console.log(a++);
+        console.log(a);
+
+        a = 30;
+        console.log( a == b );
+        console.log( a <= b );
+        
+        a = "30", b = 30;
+        console.log( a == b );
+        console.log( a === b );
+
+        a = "30", b = "30";
+        console.log( a == b );
+        console.log( a === b );
+        console.log( a != b );
+        console.log( a !== b );
+
+        var x = 30, y = 10;
+        var z = x>20 && y<20;
+        console.log(z);
+
+        var z = x>20 || y<20;
+        console.log(z);
+
+        var z = true;
+        console.log(z);
+        console.log(!z);
+        console.log(!30);
+        console.log(!"Javascript");
+
+        a = 10;
+        a += 5;
+        console.log(a);
+        a *= 2;
+        console.log(a);
+        ++a;
+        console.log(a);
+        a++;
+        console.log(a);
+        a += 1;
+        console.log(a);
+    </script>
+</body>
+
+</html>

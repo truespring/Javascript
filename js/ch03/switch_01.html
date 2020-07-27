@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch-case문 연습</title>
+</head>
+<body>
+    <script>
+        var menu = Number(prompt("메뉴를 선택하세요.(1-4)", "0"));
+
+        // if(menu == 1){
+        //     document.write("1111111111111");
+        // } else if(menu == 2){
+        //     document.write("2222222222222");
+        // } else if(menu == 3){
+        //     document.write("3333333333333");
+        // } else if(menu == 4){
+        //     document.write("4444444444444");
+        // } else {
+        //     document.write("55554444442331");
+        // }
+        // 조건 : 정수만 가능, 실수는 불가능. 문자열 가능
+        // :(콜론) : 레이블(label)의 의미
+        switch (menu) {
+            case 1:
+                document.write("1111");
+                break;
+            case 2:
+                document.write("22222");
+                break;
+            case 3:
+                document.write("33333");
+                break;
+            case 4:
+                document.write("44444");
+                break;
+            default :
+                document.write("555555");
+                break;
+        }
+    </script>
+</body>
+
+</html>
