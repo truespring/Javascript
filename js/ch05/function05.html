@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 활용하기</title>
+    <!-- 
+    변수 선언 : var라는 키워드 사용
+    변수의 중복 선언 - 똑같은 이름으로 변수를 여러 개 선언함으로써
+    여러 개발자에 의해서 협업을 할 때 심각한 문제를 야기
+    이러한 문제를 개선하기 위해서 ES6버전부터 let과 const로 구분해서 
+    사용하기를 권장한다
+    현재 시점까지는 ES5버전을 많이 사용하고 있으며 Javascript를 활용한
+    프레임워크에서는 ES6버전을 사용하고 있다
+     -->
+</head>
+<body>
+    <script>
+        // 개발자 A
+        var maxScore = 90;
+        document.write("최고 점수 : " + maxScore + "<br>");
+
+        // .........
+
+        // 개발자 B
+        var maxScore = 120;
+        document.write("최고 점수 : " + maxScore + "<br>");
+
+        // let 사용
+        let minScore = 80;
+        document.write("최저 점수 : " + minScore + "<br>");
+
+        // let minScore = 40; 중복 선언 불가
+        minScore = 70; // 값의 변경은 가능
+        document.write("최저 점수 : " + minScore + "<br>");
+
+        // const 사용 - 상수 선어
+        const basicScore = 80;
+        document.write("기준 점수 : " + basicScore + "<br>");
+
+        // const basicScore = 90; 중복선언 불가
+        basicScore = 90; // 값의 변경도 불가
+        document.write("기준 점수 : " + basicScore + "<br>");
+
+    </script>
+</body>
+</html>
