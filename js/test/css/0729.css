@@ -1,0 +1,43 @@
+.container {
+    width: 450px; margin: 20px auto; border: 1px solid white;
+    border-radius: 40px; background-color: #ccffcc; box-shadow: #ccffff 0px 20px;
+}
+.day1 {
+    text-align: center; padding: 20px;
+}
+.day1 h3 {
+    font-size: 1.5em; color: #666;
+}
+.day1 p {
+    font-weight: bold; color: #222;
+}
+.day1 .accent {
+    font-style: italic; font-size: 1.1em; color: red;
+}
+.bar {
+    color: #aaaaaa; font-size: 1.2em;
+    padding-left: 44px; margin: -20px auto; line-height: 30px;
+}
+.day2 {
+    width: 450px; margin: 0 auto; 
+}
+.day2 ul {
+    list-style-type: none; height: 60px; border-bottom: 1px dashed #cccccc;  
+}
+.day2 .item_title {
+    float: left; width: 160px; font-size: 1.5em; font-weight: bold;
+    line-height: 40px;
+}
+.day2 .item_date {
+    color: #222; font-size: 1.2em; text-align: right; margin-right: 15px;
+    line-height: 40px;
+}
+.day2 ul:last-child {
+    border: none; margin-bottom: 0;
+}
+.day2 ul:first-child {
+    margin-top: 30px;
+}
+input {
+    width: 50px;
+}

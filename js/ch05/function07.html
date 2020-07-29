@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 활용</title>
+    <!-- 
+        기본 함수는 hoisting을 지원하나
+        익명 함수는 hoisting을 지원하지 않는다.
+     -->
+</head>
+<body>
+    <script>
+        // 기본 함수
+        // 함수 호출
+        // 함수 호출을 함수 정의보다 먼저 쓸 수 있다
+        f1();
+
+        function f1() {
+            document.write("기본 함수 호출!<br>");
+        }
+
+        f2(); // 에러 - 익명 함수는 hoisting을 지원하지 않는다
+
+        var f2 = function() {
+            document.write("익명 함수 호출!<br>");
+        }
+    </script>
+</body>
+</html>
