@@ -12,12 +12,6 @@ var passDay = parseInt(pass / 1000 / 60 / 60 / 24); // 경과 시간(일)
 
 document.querySelector('#passDay').innerHTML = passDay;
 
-calcDay(100);
-calcDay(200);
-calcDay(365);
-calcDay(500);
-calcDay(730);
-calcDay(1000);
 
 function calcDay(days) {
     // 전달받은 일을 1000분의 1초로 바꿔야함
@@ -60,3 +54,10 @@ function calcDay(days) {
     document.querySelector('#date' + days).innerHTML = year + "년 " + month2 + "월 " + day3 + "일";
 
 }
+
+calcDay(100);
+calcDay(200);
+calcDay(365);
+calcDay(500);
+calcDay(730);
+calcDay(1000);

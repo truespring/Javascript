@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기념일 계산 프로그램</title>
+    <!-- 
+    기념일을 기준으로 며칠이 지났는지를 계산하는 프로그램
+
+    // 개선사항
+    현재 프로그램은 코드에 날짜를 적어놓고 사용하므로 이것을 브라우저로부터 날짜를 입력하여
+    계산한다면 대화형으로 작업할 수 있는 프로그램이 될 수 있다.
+
+    추가할 내용
+    - 기념일 입력(label), 실제 날짜(input), 날짜 계산(button)
+    - 기념일 계산 p태그 밑에 생성
+     -->
+     <style>
+        .container {
+            width: 450px; margin: 20px auto; border: 1px solid white;
+            border-radius: 40px; background-color: #ccffcc; box-shadow: #ccffff 0px 20px;
+        }
+        .day1 {
+            text-align: center; padding: 20px;
+        }
+        .day1 h3 {
+            font-size: 1.5em; color: #666;
+        }
+        .day1 p {
+            font-weight: bold; color: #222;
+        }
+        .day1 .accent {
+            font-style: italic; font-size: 1.1em; color: red;
+        }
+        .bar {
+            color: #aaaaaa; font-size: 1.2em;
+            padding-left: 44px; margin: -20px auto; line-height: 30px;
+        }
+        .input_day ul {
+            list-style-type: none; margin-right: 40px; margin-top: 30px;
+            color : green;
+        }
+        .input_day button {
+            width: 80px; border: none;
+        }
+        .day2 {
+            width: 450px; margin: 0 auto; 
+        }
+        .day2 ul {
+            list-style-type: none; height: 60px; border-bottom: 1px dashed #cccccc;  
+        }
+        .day2 .item_title {
+            float: left; width: 160px; font-size: 1.5em; font-weight: bold;
+            line-height: 40px;
+        }
+        .day2 .item_date {
+            color: #222; font-size: 1.2em; text-align: right; margin-right: 15px;
+            line-height: 40px;
+        }
+        .day2 ul:last-child {
+            border: none; margin-bottom: 0;
+        }
+        .day2 ul:first-child {
+            margin-top: 30px;
+        }
+     </style>
+</head>
+<body>
+    <div class="container">
+        <div class="day1">
+            <h3>기념일 계산 프로그램</h3>
+            <!-- <p>기념일로부터 <span class="accent">며칠</span> 이 지났는지를 계산합니다.</p> -->
+            <p>기념일로부터 오늘까지 <span class="accent" id="passDay"></span> 일 지났습니다.</p>
+        </div>
+        <div class="bar">
+            <p>기념일 계산</p>
+        </div>
+        <div class="input_day">
+            <ul>
+                <li>
+                    <label for="anni_day">기념일 입력</label>&nbsp;&nbsp;
+                    <input type="date" id="anni_day">&nbsp;&nbsp;
+                    <button onclick="setAnniDay()">날짜 계산</button>
+                </li>
+            </ul>
+        </div>
+        <div class="day2">
+            <ul>
+                <li class="item_title">100일</li>
+                <li class="item_date" id="date100"></li>
+            </ul>
+            <ul>
+                <li class="item_title">200일</li>
+                <li class="item_date" id="date200"></li>
+            </ul>
+            <ul>
+                <li class="item_title">1년</li>
+                <li class="item_date" id="date365"></li>
+            </ul>
+            <ul>
+                <li class="item_title">500일</li>
+                <li class="item_date" id="date500"></li>
+            </ul>
+            <ul>
+                <li class="item_title">2년</li>
+                <li class="item_date" id="date730"></li>
+            </ul>
+            <ul>
+                <li class="item_title">1000일</li>
+                <li class="item_date" id="date1000"></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var start;
+        function setAnniDay() {
+            var anni_day = document.querySelector('#anni_day').value;
+
+            if(anni_day == 0) {
+                alert('기념일을 선택해 주세요!');
+            } else {
+                var now = new Date(); // 현재 날짜와 시간
+                var firstDate = new Date(anni_day); // 설정 날짜, input에서 입력받은 날짜로 설정
+                console.log(anni_day);
+                console.log(firstDate);
+
+                // console.log(firstDate.toLocaleString());
+                // console.log(now);
+                start = firstDate.getTime(); // 기념일의 1000분의 1초
+                var end = now.getTime(); // 오늘의 1000분의 1초
+                var pass = end - start; // 오늘 - 기념일 -> 경과 시간의 1000분의 1초
+                var passDay = parseInt(pass/1000/60/60/24); // 경과 시간(일)
+
+                document.querySelector('#passDay').innerHTML = passDay;
+
+                calcDay(100);
+                calcDay(200);
+                calcDay(365);
+                calcDay(500);
+                calcDay(730);
+                calcDay(1000);
+            }
+        }
+        function calcDay(days) {
+            // 전달받은 일을 1000분의 1초로 바꿔야함
+            var days2 = days*1000*60*60*24; // 일을 1000분의 1초로 바꿔주는 작업
+            var passDay2 = start + days2 // 기념일에서 경과일(100일)을 뺀 1000분의 1초
+
+            // 1000분의 1초를 Date 객체로 다시 만들어야한다 -> 년월일을 구하기 위해서
+            var someDate = new Date(passDay2);
+            // console.log(someDate);
+            // console.log(someDate.toLocaleString());
+
+            var year = someDate.getFullYear();
+            var month = someDate.getMonth() + 1;
+            var day = someDate.getDate();
+
+            console.log(year + "년 " + month + "월" + day + "일");
+
+            // 월을 2자리로 만들기
+            var month2 = "";
+            if(month < 10){
+                month2 = "0".concat(month);
+            } else {
+                month2 = month;
+            }
+
+            var day3 = "";
+            if(day < 10){
+                day3 = "0".concat(day);
+            } else {
+                day3 = day;
+            }
+
+            document.querySelector('#date' + days).innerHTML = year + "년 " + month2 + "월 " + day3 + "일";
+        }
+
+        // console.log(pass + " ms");
+        // console.log(pass/1000 + " 초");
+        // console.log(pass/1000/60 + " 분");
+        // console.log(Math.floor(pass/1000/60/60) + " 시");
+        // console.log(parseInt(pass/1000/60/60/24) + " 일");
+
+    </script>
+</body>
+</html>
