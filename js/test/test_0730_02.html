@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +42,7 @@
         <div class="game">
             <label for="money"></label>
             <input type="text" id="money" placeholder="금액을 입력하세요!">
-            <button onclick="play()">PLAY!</button>
+            <button onclick="play()">주사위 굴리기!</button>
         </div>
         <div class="dice">
             <img src="images/dice_info.png" width="150px" alt="" id="img1">&nbsp;&nbsp;
@@ -51,12 +52,14 @@
         <div id="result"></div>
     </div>
     <script>
+        var jackPot = 0;
+        var win = 0;
+        var tot = 0;
 
         function play(){
             var money = document.querySelector('#money').value;
-            var jackPot = money * 10;
-            var win = money * 2;
-            var tot = 0;
+            jackPot = money * 10;
+            win = money * 2;
             if(money == 0){
                 alert("베팅금액을 입력하세요!!!!")
             } else {
@@ -68,17 +71,18 @@
                 document.querySelector('#img2').setAttribute('src', 'images/dice_' + num2 +'.png');
                 document.querySelector('#img3').setAttribute('src', 'images/dice_' + num3 +'.png');
 
-                if(num1 == num2 && num1 == num3){
+                if((num1 == num2) && num3){
                     tot += jackPot;
-                    document.querySelector('#result').innerHTML = "축하합니다! " + jackPot +"의 상금을 획득하였습니다!!<br>" + "총 상금 : " + tot;
+                    document.querySelector('#result').innerHTML = "축하합니다! " + jackPot +"의 상금을 획득하였습니다!!<br>" + "총 상금 : " + tot.toLocaleString();
                 } else if (num1 == num2 || num1 == num3 || num2 == num3) {
                     tot += win;
-                    document.querySelector('#result').innerHTML = "축하합니다! " + win +"의 상금을 획득하였습니다!!<br>" + "총 상금 : " + tot;
+                    document.querySelector('#result').innerHTML = "축하합니다! " + win +"의 상금을 획득하였습니다!!<br>" + "총 상금 : " + tot.toLocaleString();
                 } else {
-                    document.querySelector('#result').innerHTML = "상금은 없습니다!<br>" + "총 상금 : " + tot;
+                    document.querySelector('#result').innerHTML = "상금은 없습니다!<br>" + "총 상금 : " + tot.toLocaleString();
                 }
             }
         }
+        
     </script>
 </body>
 </html>
