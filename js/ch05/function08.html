@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>익명 함수와 화살표 표기법</title>
+</head>
+<body>
+    <script>
+        // 익명 함수 - 매개변수가 없음
+        var f1 = function() {return "Hello!";}
+
+        // ES6버전에서 추가된 개념 : 함수의 화살표 표기법
+        // 화살표 표기법은 익명함수를 간결하게 사용하는 방법
+        let a1 = () => "Hello!";
+
+        // 즉시실행함수
+        (function() {
+          return "Hello!";
+        }())
+
+        // 익명 함수 - 매개변수 1개, 문자열을 만들어서 리턴
+        var f2 = function(name) {return name + "님, 안녕하세요?";}
+        console.log(f2("석규환"));
+
+        // 화살표 표기법
+        // ``(역따옴표/backtick)으로 묶어준다. $ : 매개변수, {}로 묶어줌
+        let a2 = (name) => `${name}님, 안녕하세요?`;
+        console.log(a2("석규환"));
+
+        // 익명 함수 - 매개변수 2개
+        var f3 = function(a, b) { return a + b;}
+
+        // 화살표 표기법
+        let a3 = (a, b) => a + b;
+    </script>
+</body>
+</html>

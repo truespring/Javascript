@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인스턴스 객체 활용</title>
+    <!-- 
+        - 인스턴스 객체
+        :객체 생성자 함수를 사용하여 인스턴스 객체를 생성한다.
+        this : 현재 코드를 실행하는 객체를 나타내는 키워드, this는 생성된 객체 자신
+        객체 생성자 함수를 통해서 객체를 만들때 반드시 new 키워드를 사용하여 생성해야한다.
+     -->
+</head>
+<body>
+    <script>
+        // 인스턴스 객체
+        function Student(name, major, age) {
+            // property 맴버변수
+            this.name = name;
+            this.major = major;
+            this.age = age;
+        } // 함수 안에 this가 있으면 객체 생성자 함수이며 첫글자는 대문자이다.
+
+        // 인스턴스 생성
+        var s1 = new Student('석규환', '신소재공학부', 30);
+        var s2 = new Student('마미손', '힙합', 36);
+        var s3 = new Student('매드크라운', '랩', 36);
+        var s4 = new Student('침착맨', '삼국지', 37);
+        var s5 = new Student('주호민', '싯다운코미디', 38);
+        var s6 = new Student('김풍', '옾', 39);
+
+        console.log(s1.name);
+        console.log(s1.major);
+        console.log(s1.age);
+        console.log(s2.name);
+        console.log(s2.major);
+        console.log(s2.age);
+        console.log(s3.name);
+        console.log(s3.major);
+        console.log(s3.age);
+        console.log(s4.name);
+        console.log(s4.major);
+        console.log(s4.age);
+        console.log(s5.name);
+        console.log(s5.major);
+        console.log(s5.age);
+        console.log(s6.name);
+        console.log(s6.major);
+        console.log(s6.age);
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 활용</title>
+    <!-- 
+        
+     -->
+</head>
+<body>
+    <script>
+        // 객체 생성자 함수
+        function Student(name, kor, eng, math) {
+            // property
+            this.name = name;
+            this.kor = kor;
+            this.eng = eng;
+            this.math = math;
+
+            // 메소드 생성
+            this.sum = function() {
+                return (this.kor + this.eng + this.math);
+            }
+
+            this.avg = this.sum() / 3; // 이것은 property
+
+            // this.avg = function() {
+            //     return this.sum() / 3;
+            // } // 이것은 메소드
+
+            this.showInfo = function(){
+                return this.name + ", 총점 : " + this.sum() + ", 평균 : " + this.avg.toFixed(2) + "<br>";
+            }
+        }
+
+        // 객체 생성
+        // var s1 = new Student('석규환', 92, 93, 93);
+        // console.log("이름 : " + s1.name + "의 총점 : " + s1.sum());
+        // console.log("이름 : " + s1.name + "의 평균 : " + s1.avg.toFixed(2));
+        // console.log("이름 : " + s1.name + "의 평균 : " + s1.avg().toFixed(2));
+
+        // 객체 배열 생성
+        var students = [
+            new Student('석규환', 80, 79, 30),
+            new Student('마미손', 70, 67, 36),
+            new Student('매드크라운', 89, 94, 36),
+            new Student('침착맨', 88, 67, 37),
+            new Student('주호민', 67, 66, 38),
+            new Student('김풍', 46, 98, 39)
+        ];
+
+        for(var i = 0 ; i < students.length; i++){
+            // console.log(students[i].name + ", 총점 : " + students[i].sum() + "점 평균 : " + students[i].avg + "점");
+            console.log(students[i].showInfo());
+        }
+
+    </script>
+</body>
+</html>
