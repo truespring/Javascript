@@ -1,5 +1,7 @@
 var now = new Date(); // 현재 날짜와 시간
-var firstDate = new Date('#meet'); // 설정 날짜
+var firstDate = new Date(y); // 설정 날짜
+
+var y = document.getElementById('anni').value;
 
 // console.log(firstDate.toLocaleString());
 // console.log(now);
