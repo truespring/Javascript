@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>밀리의 서제 또는 윌라</title>
+    <style>
+        .container {
+            width: 500px; margin: 30px auto; border: 1px solid black;
+            height: 700px; padding: 20px;
+        }
+        .container h2 {
+            text-align: center; margin-bottom: 50px;
+        }
+        .container h3 {
+            float: left; width: 300px;
+        }
+        .container button {
+            float: left; margin: 10px;
+        }
+        .book1 {
+            border: 1px solid black; width: 450px; height: 60px; 
+            padding: 20px; margin-bottom:10px ;
+        }
+        .book2 {
+            border: 1px solid black; width: 450px; height: 60px; 
+            padding: 20px; margin-bottom:10px ;
+        }
+        .book3 {
+            border: 1px solid black; width: 450px; height: 60px; 
+            padding: 20px; margin-bottom:10px ;
+        }
+        .book4 {
+            border: 1px solid black; width: 450px; height: 60px; 
+            padding: 20px; margin-bottom:10px ;
+        }
+        .book5 {
+            border: 1px solid black; width: 450px; height: 60px; 
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div class="title">
+                <h2>밀리의 서제에서 읽은 책</h2>
+            </div>
+            <div class="book1">
+                <h3>오만과 편견</h3>
+                <button onclick="showBook(0)">확인</button>
+                <button onclick="">삭제</button>
+            </div>
+            <div class="book2">
+                <h3>레미제라블</h3>
+                <button onclick="showBook(1)">확인</button>
+                <button onclick="">삭제</button>
+            </div>
+            <div class="book3">
+                <h3>노인과 바다</h3>
+                <button onclick="showBook(2)">확인</button>
+                <button onclick="">삭제</button>
+            </div>
+            <div class="book4">
+                <h3>전쟁과 평화</h3>
+                <button onclick="showBook(3)">확인</button>
+                <button onclick="">삭제</button>
+            </div>
+            <div class="book5">
+                <h3>인생 수업</h3>
+                <button onclick="showBook(4)">확인</button>
+                <button onclick="">삭제</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function Book(title, author, volume, price) {
+            this.title = title;
+            this.author = author;
+            this.volume = volume;
+            this.price = price;
+        }
+        
+        Book.prototype.showInfo = function() {
+            return "제목 : " + this.title + ", 저자 : " + this.author + ", 페이지 정보 : " + this.volume + ", 가격 : " + this.price + "원";
+        }
+
+        var books = [
+            new Book('오만과 편견', '제인 오스틴', 560, 9900),
+            new Book('레미제라블', '빅토르 위고', 554, 16200),
+            new Book('노인과 바다', '어니스트 헤밍웨이', 193, 7200),
+            new Book('전쟁과 평화', '아자 가트', 424, 19800),
+            new Book('인생 수업', '엘리자베스 퀴블러 로스, 데이비드 케슬러', 266, 12420),
+        ];
+
+        function showBook(num) {
+            alert(books[num].showInfo());
+        }
+    </script>
+</body>
+</html>

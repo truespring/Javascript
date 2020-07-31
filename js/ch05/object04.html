@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 활용하기</title>
+</head>
+<body>
+    <script>
+        // 회원 객체 - 회원번호, 회원이름, 회원나이
+
+        // 싱글톤 객체 - 하나의 객체를 생성
+        // 변수를 각각 생성하는 것보다 객체로 묶어 생성하는 것이 효율적인 방법
+        // 객체를 따로 생성하고, 
+        var m1 = { no:112233, name:'석규환', age:32, };
+        var m2 = { no:445566, name:'침착맨', age:33, };
+        var m3 = { no:778899, name:'김나성', age:38, };
+        var m4 = { no:123456, name:'김도', age:34, };
+        var m5 = { no:987654, name:'자동', age:24, };
+        var m6 = { no:778899, name:'똘삼', age:21, };
+
+        document.write("객체 타입 : " + typeof m1 + "<br>");
+        document.write("회원번호 : " + m1.no +", 회원 이름 : " + m1.name + ", 회원 나이 : " + m1.age + "<br>");
+        document.write("회원번호 : " + m2.no +", 회원 이름 : " + m2.name + ", 회원 나이 : " + m2.age + "<br>");
+        document.write("회원번호 : " + m3.no +", 회원 이름 : " + m3.name + ", 회원 나이 : " + m3.age + "<br>");
+        document.write("회원번호 : " + m4.no +", 회원 이름 : " + m4.name + ", 회원 나이 : " + m4.age + "<br>");
+        document.write("회원번호 : " + m5.no +", 회원 이름 : " + m5.name + ", 회원 나이 : " + m5.age + "<br>");
+        document.write("회원번호 : " + m6.no +", 회원 이름 : " + m6.name + ", 회원 나이 : " + m6.age + "<br>");
+        document.write("<hr>");
+
+        // 객체 생성자 함수 - 다수의 객체를 생성
+        // 객체 생성자 함수를 만들어 이를 통해 객체를 생성
+        function Member(no, name, age) {
+            this.no = no;
+            this.name = name;
+            this.age = age;
+        } 
+
+        // var member1 = new Member(123123, '따효니', 29);
+        // var member2 = new Member(321312, '백상현', 30);
+        // var member3 = new Member(345345, '크크이', 31);
+        // var member4 = new Member(534645, '쪼롱이', 12);
+        // var member5 = new Member(764452, '레오', 11);
+        // 배열에 담아서 사용할 수 있다
+        var members = [
+            new Member(123123, '따효니', 29),
+            new Member(321312, '백상현', 30),
+            new Member(345345, '크크이', 31),
+            new Member(534645, '쪼롱이', 12),
+            new Member(764452, '레오', 11),
+        ]
+
+        document.write("객체타입 : " + typeof Member + "<br>");
+        document.write("객체타입 : " + typeof members + "<br>");
+        document.write("객체타입 : " + typeof members[1] + "<br>");
+
+        // document.write("객체 타입 : " + typeof member1 + "<br>");
+        // document.write("회원 번호 : " + member1.no + ", 회원 이름: " + member1.name + ", 회원 나이 : " + member1.age + "<br>");
+    
+        for(var i = 0; i < members.length; i++){
+            document.write("회원 번호 : " + members[i].no + ", 회원 이름: " + members[i].name + ", 회원 나이 : " + members[i].age + "<br>");
+        }
+    </script>
+</body>
+</html>
