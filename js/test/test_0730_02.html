@@ -15,19 +15,39 @@
      -->
      <style>
          .container {
-            width: 650px; margin: 30px auto;
+            width: 650px; margin: 30px auto; 
          }
          .container h1 {
              text-align: center; font-size: 2.2em; color: red;
          }
          .info {
-             text-align: center; font-weight: bold;
+             text-align: center; font-weight: bold; margin-top: 80px;
          }
          .game { 
              text-align: center;
          }
+         .game input {
+             width: 200px;
+         }
+         .game .play {
+             margin-top: 20px; border-collapse: collapse; width: 200px; height: 50px;
+             font-size: 1.2em; background: linear-gradient(to bottom, yellow,green);
+         }
+         .game .play:hover {
+            background: linear-gradient(to bottom, green,yellow);
+         }
          .dice {
-             text-align: center;
+             text-align: center; margin-top: 20px;
+         }
+         #result {
+             text-align: center; line-height: 20px;
+             font-size: 1.1em; padding: 20px;
+         }
+         .container #jackpot {
+             border-radius: 20px;
+         }
+         .container #jack {
+            text-align: center;
          }
      </style>
 </head>
@@ -41,8 +61,8 @@
         </div>
         <div class="game">
             <label for="money"></label>
-            <input type="text" id="money" placeholder="금액을 입력하세요!">
-            <button onclick="play()">주사위 굴리기!</button>
+            <input type="text" id="money" placeholder="금액을 입력하세요!" autofocus onKeyDown="pressEnter()"><br>
+            <button onclick="play()" class="play" >주사위 굴리기!</button>
         </div>
         <div class="dice">
             <img src="images/dice_info.png" width="150px" alt="" id="img1">&nbsp;&nbsp;
@@ -50,8 +70,17 @@
             <img src="images/dice_info.png" width="150px" alt="" id="img3">
         </div>
         <div id="result"></div>
+        <div id="jack">
+            <img src="" alt="" id="jackpot" width="300px">
+        </div>
     </div>
     <script>
+        function pressEnter(){
+            if(event.keyCode == 13){
+                play();
+            }
+        }
+
         var jackPot = 0;
         var win = 0;
         var tot = 0;
@@ -60,9 +89,13 @@
             var money = document.querySelector('#money').value;
             jackPot = money * 10;
             win = money * 2;
-            if(money == 0){
+            
+            if(money == false){
                 alert("베팅금액을 입력하세요!!!!")
             } else {
+                // var num1 = 1;
+                // var num2 = 1;
+                // var num3 = 1;
                 var num1 = parseInt(Math.random()*6 + 1);
                 var num2 = parseInt(Math.random()*6 + 1);
                 var num3 = parseInt(Math.random()*6 + 1);
@@ -71,16 +104,18 @@
                 document.querySelector('#img2').setAttribute('src', 'images/dice_' + num2 +'.png');
                 document.querySelector('#img3').setAttribute('src', 'images/dice_' + num3 +'.png');
 
-                if((num1 == num2) && num3){
+                if(num1 == num2 && num1 == num3){
                     tot += jackPot;
-                    document.querySelector('#result').innerHTML = "축하합니다! " + jackPot +"의 상금을 획득하였습니다!!<br>" + "총 상금 : " + tot.toLocaleString();
+                    document.querySelector('#result').innerHTML = "축하합니다! " + jackPot +"원의 상금을 획득하였습니다!!<br>" + "총 상금 : " + tot.toLocaleString();
+                    document.querySelector('#jackpot').setAttribute('src', 'images/jackpot.jpg');
                 } else if (num1 == num2 || num1 == num3 || num2 == num3) {
                     tot += win;
-                    document.querySelector('#result').innerHTML = "축하합니다! " + win +"의 상금을 획득하였습니다!!<br>" + "총 상금 : " + tot.toLocaleString();
+                    document.querySelector('#result').innerHTML = "축하합니다! " + win +"원의 상금을 획득하였습니다!!<br>" + "총 상금 : " + tot.toLocaleString();
                 } else {
                     document.querySelector('#result').innerHTML = "상금은 없습니다!<br>" + "총 상금 : " + tot.toLocaleString();
                 }
             }
+            document.getElementById('money').value = null;
         }
         
     </script>
