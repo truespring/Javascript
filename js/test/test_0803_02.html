@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서 목록 관리 프로그램</title>
+    <style>
+        * {
+            box-sizing: border-box; border-radius: 5px;
+        }
+        .container { 
+            width: 600px; margin: 30px auto;
+        }
+        .container h2 {
+            text-align: center;
+        }
+        .container form {
+            background-color: #007acc; padding: 30px 40px; color: white; text-align: center;
+            box-shadow: 3px 4px 5px blue;
+        }
+        form input {
+            border: none; width: 110px; padding: 10px; font-size: 1.2em;
+        }
+        form .addBtn {
+            background-color: gray; color: white; width: 60px; padding: 11px; border: none;
+            font-size: 1em; margin-left: 10px; cursor: pointer; box-shadow: 2px 2px 4px black;
+        }
+        form .addBtn:hover {
+            box-shadow: 3px 3px 4px black;
+        }
+        ul {
+            list-style-type: none; margin: 0; padding: 0;
+        }
+        ul li {
+            background-color: #eee; font-size: 1.1em; padding: 5px;
+        }
+        .close {
+            float: right; cursor: pointer; margin-right: 5px; padding: 0px 5px;
+        }
+        .bookInfo {
+            float: right; background-color: gold; padding: 0 5px; cursor: pointer;
+            right: 190px; 
+        }
+    </style>
+    <!-- 
+        이벤트 - 웹브라우저에서 HTML 문서와 사용자 사이의 상호작용을 의해서 발생하는 일,
+        이벤트가 발생하면 웹브라우저는 이 사실을 자바스크립트에게 알려주어서 
+        이벤트에 대한 적절한 처리를 할 수 있게 한다.
+        - 클릭, 더블클릭, 마우스오버, 마우스아웃, 마우스무브, 마우스다운, 마우스업
+        - 키보드누를때, 키보드놓을때, 키보드누르고있을때
+        - 체인지, 포커스, 블러, 셀럭트
+        - 윈도우로드, 언로드, 리사이즈
+        이벤트 리스너 - 이벤트가 발생했을 때 실행되는 함수
+     -->
+</head>
+<body>
+    <div class="container">
+        <h2>여행 준비물 점검 목록</h2>
+        <form action="">
+            <input type="text" id="title" autofocus placeholder="제목">
+            <input type="text" id="author" placeholder="저자">
+            <input type="text" id="volume" placeholder="페이지">
+            <input type="text" id="price" placeholder="가격">
+            <button id="add" class="addBtn" onclick="showList()">추가</button>
+        </form>
+        <div id="itemList"></div>
+    </div>
+    <script>
+        // 객체 생성자 함수
+        function Book(title, author, volume, price) {
+            this.title = title;
+            this.author = author;
+            this.volume = volume;
+            this.price = price;
+        }
+        Book.prototype.showInfo = function() {
+            return "제목 : " + this.title + "\n저자 : " + this.author 
+            + "\n페이지 : " + this.volume + "\n가격 : " + this.price;
+        }
+
+        // var itemList = [
+        //     new Book('오만과 편견', '제인 오스틴', 560, 9900),
+        //     new Book('레미제라블', '빅토르 위고', 554, 16200),
+        //     new Book('노인과 바다', '어니스트 헤밍웨이', 193, 7200),
+        //     new Book('전쟁과 평화', '아자 가트', 424, 19800),
+        //     new Book('인생 수업', '엘리자베스 퀴블러 로스, 데이비드 케슬러', 266, 12420),
+        // ];
+
+        var itemList = []; // 책 정보를 담기위한 빈 배열
+
+        var addBtn = document.querySelector('#add');
+        addBtn.addEventListener("click", addList);
+
+        function addList() {
+            var title = document.querySelector('#title').value;
+            var author = document.querySelector('#author').value;
+            var volume = document.querySelector('#volume').value;
+            var price = document.querySelector('#price').value;
+
+            if(title == 0) {
+                alert("제목을 입력해 주세요!");
+                return;
+            } else if (author == 0) {
+                alert("저자를 입력해 주세요!");
+                return;
+            } else if (volume == 0) {
+                alert("페이지을 입력해 주세요!");
+                return;
+            } else if (price == 0) {
+                alert("가격을 입력해 주세요!");
+                return;
+            } 
+            
+            itemList.push(new Book(title, author, volume, price));
+            document.querySelector('#title').value = '';
+            document.querySelector('#author').value = '';
+            document.querySelector('#volume').value = '';
+            document.querySelector('#price').value = '';
+            document.querySelector('#title').focus();
+            
+            event.preventDefault();
+            showList();
+        }
+
+        function showList() {
+            event.preventDefault();
+            var list = '<ul>';
+            for(var i = 0; i < itemList.length; i++){
+                list += '<li>' + itemList[i].title + '<span class="bookInfo" id=' + i + '>책 정보</span>' + '<span class="close" id=' + i + '>X</span>' +'</li>';
+            } 
+            list += "</ul>";
+
+            document.querySelector('#itemList').innerHTML = list;
+
+            // item에 대한 배열 - close
+            var removeList = document.querySelectorAll(".close");
+            for(var i = 0; i < removeList.length; i++){
+                removeList[i].addEventListener('click', removeItem);
+            }
+
+            // item에 대한 배열 - bookInfo
+            var bookList = document.querySelectorAll(".bookInfo");
+            for(var i = 0; i < bookList.length; i++){
+                bookList[i].addEventListener('click', showBookInfo);
+            }
+        }
+
+        function removeItem() {
+            var id = this.getAttribute('id'); // id 속성을 저장
+            itemList.splice(id, 1); // 선택된 아이디 한 개를 삭제한다
+            showList(); // 자바스크립트에서 삭제한 itemList 브라우저 화면에 다시 반영
+        }
+
+        function showBookInfo() {
+            var id = this.getAttribute('id');
+            alert(itemList[id].showInfo());
+        }
+    </script>
+</body>
+</html>

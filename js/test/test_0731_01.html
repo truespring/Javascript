@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>밀리의 서제 또는 윌라</title>
+    <title>밀리의 서제</title>
     <style>
         .container {
             width: 500px; margin: 30px auto; border: 1px solid black;
@@ -82,7 +82,7 @@
         }
         
         Book.prototype.showInfo = function() {
-            return "제목 : " + this.title + ", 저자 : " + this.author + ", 페이지 정보 : " + this.volume + ", 가격 : " + this.price + "원";
+            return "제목 : " + this.title + "\n 저자 : " + this.author + "\n 페이지 정보 : " + this.volume + "\n 가격 : " + this.price + "원";
         }
 
         var books = [

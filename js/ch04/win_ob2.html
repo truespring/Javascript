@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window 객체</title>
+</head>
+<body>
+    <button onclick="clearInterval(auto_1)">증가 중지</button> 
+    <!-- 증감식 중지 -->
+    <button onclick="clearInterval(auto_2)">감소 중지</button>
+    <!-- 감소식 중지 -->
+    <script>
+        var addNum = 0, subNum = 1000;
+
+        var auto_1 = setInterval(function() {
+            addNum++;
+            console.log("addNum : " + addNum);
+        }, 3000); // 3초마다 증가
+
+        var auto_2 = setInterval(function() {
+            subNum--;
+            console.log("subNum : " + subNum);
+        }, 3000); // 3초마다 감소
+    </script>
+</body>
+</html>

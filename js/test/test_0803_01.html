@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행 준비물 점검 목록</title>
+    <style>
+        * {
+            box-sizing: border-box; border-radius: 5px;
+        }
+        .container { 
+            width: 600px; margin: 30px auto;
+        }
+        .container h2 {
+            text-align: center;
+        }
+        .container form {
+            background-color: #007acc; padding: 30px 40px; color: white; text-align: center;
+            box-shadow: 3px 4px 5px blue;
+        }
+        form input {
+            border: none; width: 440px; padding: 10px; font-size: 1.2em;
+        }
+        form .addBtn {
+            background-color: gray; color: white; width: 60px; padding: 11px; border: none;
+            font-size: 1em; margin-left: 10px; cursor: pointer; box-shadow: 2px 2px 4px black;
+        }
+        form .addBtn:hover {
+            box-shadow: 3px 3px 4px black;
+        }
+        ul {
+            list-style-type: none; margin: 0; padding: 0;
+        }
+        ul li {
+            background-color: #eee; font-size: 1.1em; padding: 5px;
+        }
+        .close {
+            float: right; cursor: pointer; margin-right: 5px;
+        }
+    </style>
+    <!-- 
+        이벤트 - 웹브라우저에서 HTML 문서와 사용자 사이의 상호작용을 의해서 발생하는 일,
+        이벤트가 발생하면 웹브라우저는 이 사실을 자바스크립트에게 알려주어서 
+        이벤트에 대한 적절한 처리를 할 수 있게 한다.
+        - 클릭, 더블클릭, 마우스오버, 마우스아웃, 마우스무브, 마우스다운, 마우스업
+        - 키보드누를때, 키보드놓을때, 키보드누르고있을때
+        - 체인지, 포커스, 블러, 셀럭트
+        - 윈도우로드, 언로드, 리사이즈
+        이벤트 리스너 - 이벤트가 발생했을 때 실행되는 함수
+     -->
+</head>
+<body>
+    <div class="container">
+        <h2>여행 준비물 점검 목록</h2>
+        <form action="">
+            <input type="text" id="item" autofocus>
+            <button id="add" class="addBtn">추가</button>
+        </form>
+        <div id="itemList"></div>
+    </div>
+    <script>
+        var itemList = []; // 준비물을 추가할 빈 배열
+
+        var addBtn = document.querySelector('#add');
+        addBtn.addEventListener("click", addList);
+
+        function addList() {
+            var item = document.querySelector('#item').value;
+            if(item == 0) { // 내용을 입력하지 않았을 때
+                alert("여행 준비물을 입력하세요.");
+            } else { // 내용을 입력했을 때
+                itemList.push(item);
+                document.querySelector('#item').value = '';
+                document.querySelector('#item').focus();
+            }
+            event.preventDefault();
+            showList();
+        }
+
+        function showList() {
+            var list = '<ul>';
+            for(var i = 0; i < itemList.length; i++){
+                list += '<li>' + itemList[i] + '<span class="close" id=' + i + '>X</span>' +'</li>';
+            } 
+            list += "</ul>";
+
+            document.querySelector('#itemList').innerHTML = list;
+
+            var removeList = document.querySelectorAll(".close");
+
+            for(var i = 0; i < removeList.length; i++){
+                removeList[i].addEventListener('click', removeItem);
+            }
+        }
+
+        function removeItem() {
+            var id = this.getAttribute('id'); // id 속성을 저장
+            itemList.splice(id, 1); // 선택된 아이디 한 개를 삭제한다
+            showList(); // 자바스크립트에서 삭제한 itemList 브라우저 화면에 다시 반영
+        }
+    </script>
+</body>
+</html>
