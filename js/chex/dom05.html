@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체</title>
+    <style>
+        .container {
+            width: 500px; margin: 30px auto;
+        }
+        /* .box1 {
+            margin: 10px 0;
+        } */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>자바스크립트 DOM 객체</h3>
+        <div class="box1">자바스크립트 요소의 동적인 스타일 변경</div>
+        <button class="btn1">스타일 변경</button>
+    </div>
+    <script>
+        var box1 = document.querySelector('.box1');
+        var btn1 = document.querySelector('.btn1');
+
+        btn1.addEventListener('click', changeStyle);
+
+        function changeStyle() {
+            // 속성 사용 - 속성이 누적되어 모두 적용됨
+            // 스타일 태그에서 -으로 이어지는 부분은 대문자로 바꾸어 작성한다.
+            // box1.style.border = "1px solid black";
+            // box1.style.padding = "10px";
+            // box1.style.margin = "10px 0";
+            // box1.style.backgroundColor = 'yellow';
+            // box1.style.width = '400px';
+            // box1.style.height = '100px';
+            // box1.style.textAlign = 'center';
+            // box1.style.lineHeight = '100px';
+            // box1.style.fontSize = '1.2em';
+            // box1.style.color = 'green';
+            // box1.style.fontWeight = 'bold';
+            // box1.style.borderRadius = '50%'
+            // box1.style.boxShadow = '5px 5px 5px gray';
+
+            // 메소드 사용 - 제일 마지막에 작성한 값이 적용되어 이전의 값은 모두 사라짐
+            box1.setAttribute('style', 'border:1px solid black; padding:10px; margin:10px; background-color:yellow');
+        }
+    </script>
+</body>
+</html>

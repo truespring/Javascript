@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체</title>
+    <style>
+        .container {
+            width: 500px; margin: 0 auto;
+        }
+        #light {
+            width: 400px; height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>전구 점등/소등</h3>
+        <hr>
+        <!-- 하나의 버튼으로 2가지 일을 하는 것을 토글버튼이라고 한다 -->
+        <button id="btnLight">점등</button>
+        <hr>
+        <img src="images/lightoff.png" alt="" id="light">
+    </div>
+    <script>
+        var btnLight = document.getElementById('btnLight');
+        var img = document.querySelector('#light');
+
+        btnLight.addEventListener('click', changeLight);
+
+        function changeLight() {
+            if(btnLight.innerHTML == "점등") { // 점등일 때
+                // img.src = 'images/lighton.png'; 위 아래가 같으므로 사용하는 방법을 알아놓으면 좋다
+                img.setAttribute('src', 'images/lighton.png');
+                btnLight.innerHTML = "소등";
+                // btnLight.style.backgroundColor = "lightgray"; 위 아래가 같으므로 사용하는 방법을 알아놓으면 좋다
+                btnLight.setAttribute('style', 'background-color:lightyellow');
+            } else { // 소등일 때
+                img.src = 'images/lightoff.png';
+                btnLight.innerHTML = "점등";
+                btnLight.style.backgroundColor = "lightgray";
+            }
+        }
+    </script>
+</body>
+</html>
