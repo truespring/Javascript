@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션 효과(노드의 이동)</title>
+    <style>
+        .container {
+            width: 600px; margin: 30px auto;
+        }
+    </style>
+    <!-- 
+        DOM 객체의 반환 메소드
+        1. getElementById() - 지정된 id 속성값을 가진 요소의 첫 번째 요소객체를 반환한다.
+        2. getElementsByName() - 지정된 name 속성값을 가진 요소객체들을 반환한다.
+        3. getElementsByClassName() - 지정된 class 속성값을 가진 요소객체들을 반환한다.
+        4. getElementsByTagName() - 지정된 tag명을 가진 요소객체들을 반환한다.
+
+        5. querySelector() - 지정된 css 선택자를 만족하는 첫 번재 요소객체를 반환한다.
+        6. querySelectorAll() - 지정된 css 선택자를 만족하는 모든 요소객체들을 반환한다.
+
+        1개 - getElementById(), querySelector()
+        여러개 - getElementsByName(), getElementByClassName(), getElementsByTagName(), querySelectorAll()
+     -->
+</head>
+<body>
+    <div class="container">
+        <h3>이미지 이동하는 애니메이션 효과</h3>
+        <div id="images">
+            <img src="images/f1.png" alt="" height="100">
+            <img src="images/f2.png" alt="" height="100">
+            <img src="images/f3.png" alt="" height="100">
+            <img src="images/f4.png" alt="" height="100">
+            <img src="images/f5.png" alt="" height="100">
+            <img src="images/f6.png" alt="" height="100">
+            <img src="images/f7.png" alt="" height="100">
+        </div>
+        <hr>
+        <button onclick="setInterval(moveImages, 125)">애니메이션 적용</button>
+        <button>애니메이션 정지</button>
+    </div>
+    <script>
+        var images = document.querySelector('#images');
+
+        var btn1 = document.querySelector('#btn1');
+        btn1.addEventListener('click', moveImages);
+
+        function moveImages() {
+            // 태그의 이름을 적어 넣는다(구분자가 없다 ex)# or . ), 이미지의 배열이 된다.
+            var imgTag = document.querySelectorAll('img'); 
+            var movingImg = imgTag[0]; // 첫 번째 이미지
+            images.removeChild(movingImg);
+            images.appendChild(movingImg);
+        }
+
+    </script>
+</body>
+</html>

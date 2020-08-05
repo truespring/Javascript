@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 호출 방법</title>
+    <style>
+        .container{
+            width: 600px; margin: 30px auto;
+        }
+        button {
+            margin-bottom: 20px;
+        }
+        
+    </style>
+    <!-- 
+        1. button 태그의 onclick 속성에서 함수를 호출
+        2. 자바스크립트에서 button 태그의 아이디를 통해 onclick 속성으로 함수를 연결한 것
+        3. 자바스크립트에서 이벤트리스너를 통해 함수를 호출하는 것
+        - 다른 버튼에서도 함수 사용이 가능
+        4. 자바스크립트에서 이벤트리스너를 통해 익명함수로 만들어 사용
+        - 현재 사용하는 버튼에서만 함수 사용이 가능
+
+        이벤트리스너를 사용하지 않고 바로 함수 호출 - 1, 2번 방법
+        이벤트리스너를 사용하여 함수 호출 - 3, 4번 방법
+
+        이벤트리스너를 사용하게되면 버튼에 다양한 이벤트를 부착할 수 있다.
+     -->
+</head>
+<body>
+    <div class="container">
+        <h3>여러 가지 함수 호출 방법</h3>
+        <!-- <button onclick="addMsg()">함수 호출</button> -->
+        <button id="btn1">함수 호출</button>
+        <div id="msg"></div>
+    </div>
+    <script>
+        var msg = document.getElementById('msg');
+
+        var btn1 = document.getElementById('btn1');
+        // btn1.onclick = addMsg; // 방법 2
+        // document.getElementById('btn1').onclick = addMsg; // 위를 한 줄로 줄인 방법
+
+        // btn1.addEventListener('click', addMsg); // 방법 3
+
+        // function addMsg() {
+        //     msg.innerHTML = "다양한 함수 호출 방법을 배우고 있습니다.";
+        // }
+
+        // 방법 4
+        btn1.addEventListener('click', function() {
+            msg.innerHTML = "다양한 함수 호출 방법을 배우고 있습니다.";
+        });
+    </script>
+</body>
+</html>

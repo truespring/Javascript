@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 500px; margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>웹 프로그래밍</h3>
+        <ul id="p1">프론트엔드 프로그래밍<li>HTML</li><li>CSS</li><li>Javascript</li></ul>
+        <ul id="p2">백엔드 프로그래밍
+            <li>JAVA</li>
+            <li>JSP</li>
+            <li>Oracle</li>
+        </ul>
+    </div>
+    <script>
+        var p1 = document.querySelector('#p1');
+        var p2 = document.querySelector('#p2');
+
+        document.write("<hr>--- DOM Tree 탐색 ---<br>");
+        document.write("ul 태그의 자식 노드의 갯수 : " + p1.childNodes.length + "<br>");
+
+        for(var i = 0; i < p1.childNodes.length; i++){
+            document.write(i + "번째 자식 노드 : " + p1.childNodes[i] + "<br>");
+        }
+
+        document.write("<hr>--- DOM Tree 탐색 ---<br>");
+        document.write("ul 태그의 자식 노드의 갯수 : " + p2.childNodes.length + "<br>");
+
+        for(var i = 0; i < p2.childNodes.length; i++){
+            document.write(i + "번째 자식 노드 : " + p2.childNodes[i] + "<br>");
+        }
+
+
+    </script>
+</body>
+</html>
