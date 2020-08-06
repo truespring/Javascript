@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select의 DOM 객체</title>
+    <style>
+        .container {
+            width: 600px; margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>한국대학교 설문조사 2</h2>
+        <h3>Q1. 가장 좋아하는 전공과목을 선택해 주세요.(다중 선택)</h3>
+        <select name="" id="subject" multiple size="5">
+            <option value="데이터베이스">데이터베이스</option>
+            <option value="운영체제">운영체제</option>
+            <option value="자료구조">자료구조</option>
+            <option value="네트워크">네트워크</option>
+            <option value="프로그래밍">프로그래밍</option>
+            <option value="알고리즘">알고리즘</option>
+        </select>
+        <hr>
+        <button onclick="selectComplete()">선택 완료</button>
+        <hr>
+        <div id="result"></div>
+    </div>
+    <script>
+        var subjects = document.getElementById('subject');
+        var result = document.getElementById('result');
+
+        function selectComplete() {
+            var output = "";
+            for(var i = 0; i<subjects.length; i++){
+                if(subjects.options[i].selected == true) { // option이 선택되었다면
+                    output += subjects.options[i].value + " ";
+                }
+            }
+            // console.log(output);
+            result.innerHTML = "좋아하는 과목 : " + output;
+        }
+    </script>
+</body>
+</html>

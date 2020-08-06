@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 모델</title>
+    <style>
+        .container {
+            width: 600px; margin: 30px auto; text-align: center;
+        }
+    </style>
+    <!-- 
+        oncontextmenu 이벤트 : 웹브라우저 화면에서 특정 HTML 요소 위에서 오른쪽 마우스를
+        눌렀을 때 발생하는 이벤트
+        소스보기, 이미지 다운로드 등의 메뉴를 제공하는 컨텍스트 메뉴를 디폴트로 제공함
+        oncontextmenu 속성으로 컨텍스트 메뉴를 사용할 수 없도록 할 때 사용한다.
+     -->
+</head>
+<body>
+    <div class="container">
+        <h3>마우스를 이미지 위로 올려 놓으세요.</h3>
+        <img src="images/image1.JPG" alt="" width="500" oncontextmenu="return false">
+    </div>
+</body>
+</html>
