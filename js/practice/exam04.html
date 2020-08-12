@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function meth(n1=0, n2=0, n3=0) {  // 초기화
+            console.log('n1 : ' + n1);
+            console.log('n2 : ' + n2);
+            console.log('n3 : ' + n3);
+        }
+
+        meth(1); // 첫 번째 매개변수에만 값이 들어간다.
+        // meth(1, 2);
+        // meth(1, 2, 3);
+        // meth(1, 2, 3, 4);
+
+        function meth1() {
+            console.log(arguments[0])
+        }
+        meth1(100)
+    </script>
+</body>
+</html>

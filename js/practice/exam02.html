@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function foo() {
+            if(true) {
+                // var color = 'blue'; 함수 단위로 살아있다
+                color = 'blue';
+                let color2 = 'red'; // let과 const는 선언한 스코프만큼 살아있다.
+                const color3 = 'black';
+            }
+            console.log(`color : ${color}`);
+            console.log(`color2 : ${color2}`);
+            console.log(`color3 : ${color3}`);
+        }
+
+        foo();
+    </script>
+</body>
+</html>

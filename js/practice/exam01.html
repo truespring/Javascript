@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result" class="cls"></div>
+    <script>
+        let ab = 10;
+        const cc = '가나다';
+
+        let re = `안녕하세요 제 나이는 ${ab}입니다.`;  // == '안녕하세요 제 나이는 ' + ab + '입니다.';
+
+        var fn1 = function(n1, n2) {
+            return n1 + n2;
+        }
+        var fn2 = (n1, n2) => {
+            return n1 + n2;
+        }
+
+        var res = fn1(5, 10);
+
+        // 아이디에서만 사용이 가능하다
+        result.innerHTML = res;
+    </script>
+</body>
+</html>
