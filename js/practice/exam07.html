@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- 콜백 함수 -->
 </head>
 <body>
     <script>
-        Array.prototype.arr = []
+        Array.prototype.arr = [] // 이미 만들어진 객체에 변수 및 메소드를 추가할 수 있다
         Array.prototype.forEach2 = function(fn) {
             for(var i = 0; i < this.arr.length; i++) {
                 var item = this.arr[i]
-
                 fn(item)
             }
         }
@@ -19,7 +19,12 @@
         objArr.arr = ['A', 'B', 'C']
         objArr.forEach2(function(a) {
             alert(a)
-        })
+        }) // fn 에는 function(a)가 들어가고 item에는 a가 들어간다
+
+        // var func = function(a) {
+        //     alert(a)
+        // }
+        // objArr.forEach2(func)
     </script>
 </body>
 </html>
