@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콜백 함수</title>
+</head>
+<body>
+    <script>
+        Array.prototype.arr = []
+        Array.prototype.filter2 = function(fn) {
+            var result = []
+            for(var i = 0; i < this.arr.length; i++) {
+                var item = this.arr[i]
+                if(fn(item)) { // true일 때만 값이 넘어온다
+                    result.push(item)
+                }
+            }
+            return result
+        }
+        
+        var originArr = [3, 5, 9, 10, 12, 22, 23]
+        var result = originArr.filter(function(item) {
+            if(item % 2 == 0) { // 이 부분만 바꿔주면 마음대로 사용이 가능하다
+                return true
+            }
+            // return item % 2 == 0
+        }) // filter는 true만 넘긴다
+        console.log(`result : ${result}`)
+
+        var myArr = Array()
+        myArr.arr = [3, 5, 9, 10, 12, 22, 23]
+        var result2 = myArr.filter2(function(item) {
+            if(item % 2 == 0) {
+                return true
+            }
+        })
+        console.log(`result2 : ${result2}`)
+    </script>
+</body>
+</html>
