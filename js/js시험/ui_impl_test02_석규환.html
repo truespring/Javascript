@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2번 문제</title>
+    <style>
+        .container { width: 500px; margin: 30px auto; padding: 30px; border: 1px solid black;
+        }
+       h1 {
+           text-align: center;
+       }
+       .people {
+            padding: 20px; margin-bottom: 20px;
+       }
+       .people input {
+           margin-left: 30px;
+       }
+       .people select {
+           margin-left: 30px; margin-top: 20px;
+       }
+       .people ._name, .people ._major {
+           margin-left: 90px; color: green; font-size: 0.8em;
+       }
+       #nam {
+           width: 170px;
+       }
+       #subject {
+           width: 200px;
+       }
+       .subject {
+           padding: 30px; margin-bottom: 20px;
+       }
+       .mail {
+           padding: 30px;
+       }
+       button {
+           margin-top: 20px; width: 100px; height: 50px; background-color: black; color: white;
+       }
+       .btn1 {
+           margin-left: 140px;
+       }
+       .btn2 {
+           margin-left: 20px;
+       }
+       fieldset {
+           font-size: 1.2em;
+       }
+       div {
+           margin-bottom: 20px;
+       }
+       legend {
+           font-weight: bold;
+       }
+       select, input {
+           padding: 5px;
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <h1>수강신청</h1>
+            <fieldset class="people">
+                <legend>신청인</legend>
+                <span class="_name">이름 </span><input type="text" id="nam"><br>
+                <span class="_major">학과 </span><select id="subject">
+                    <option>---학과 선택---</option>
+                    <option>컴퓨터공학과</option>
+                    <option>전자공학과</option>
+                    <option>기계공학과</option>
+                    <option>건축공학과</option>
+                    <option>화학공학과</option>
+                    <option>산업공학과</option>
+                </select>
+            </fieldset>
+            <fieldset class="subject">
+                <legend>신청 과목</legend>
+                <div>이 달에 신청할 과목을 선택하세요.</div>
+                <input type="radio" name="eng" value="영어 회화" id="sel1"><label for="sel1">영어 회화</label>
+                <input type="radio" name="eng" value="영어 문법" id="sel2"><label for="sel2">영어 문법</label>
+                <input type="radio" name="eng" value="영어 작문" id="sel3"><label for="sel3">영어 작문</label>
+            </fieldset>
+            <fieldset class="mail">
+                <legend>메일링</legend>
+                <div>메일로 받고 싶은 뉴스 주제를 선택해 주세요</div>
+                <input type="checkbox" name="mail" id="mail1" value="해외뉴스"><label for="mail1">해외뉴스</label>
+                <input type="checkbox" name="mail" id="mail2" value="5분회화"><label for="mail2">5분회화</label>
+                <input type="checkbox" name="mail" id="mail3" value="모닝팝스"><label for="mail3">모닝팝스</label>
+            </fieldset>
+            <button class="btn1" onclick="cancle()">취소</button>
+            <button class="btn2" onclick="inputComplete()">확인</button>
+        </div>
+    </div>
+    <script>
+        function inputComplete() {
+            var eng = document.getElementsByName("eng")
+            var mail = document.getElementsByName("mail")
+            var output1 = "", output2 = ""
+
+            if (subject.value == '---학과 선택---') {
+                return alert('학과를 선택하세요')
+            } else {
+                for(var i=0; i<eng.length; i++) {
+                     if(eng[i].checked == true) { 
+                         output1 = eng[i].value;
+                     }
+                 }
+
+                 for(var i=0; i<mail.length; i++) {
+                     if(mail[i].checked == true) { 
+                         output2 += mail[i].value + ", "
+                     }
+                 }
+                 return alert (`이름 : ${nam.value}\n학과 : ${subject.value}\n신청 과목 : ${output1}\n메일링 : ${output2}`)
+            }
+        }
+
+        function cancle(){
+            location.reload()
+        }
+    </script>
+</body>
+</html>

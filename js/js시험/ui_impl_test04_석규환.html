@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시험 4번</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #container {
+            width: 300px; margin: 20px 0 auto; padding: 50px; border: 1px solid black;
+            margin-bottom: 20px;
+        }
+        img {
+            width: 50px;
+        }
+        div {
+            margin-top: 10px;
+        }
+        .text1val {
+            font-weight: bold; color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div><img src="images/w3.PNG">Web Programming!</div>
+        <hr>
+        <input type="text" id="text1">&nbsp;<button id="add">교과내용 추가</button>
+        <div>HTML5</div>
+        <div>CSS3</div>
+        <div>Javascript</div>
+        <div id="result"></div>
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+        $("#add").click(function(){
+            $("#result").append(`<div class="text1val">${text1.value}</div>`)
+        })
+    })
+</script>
+</html>
