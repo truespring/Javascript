@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+        * { box-sizing: border-box;}
+        .container { width: 600px; margin: 30px auto;}
+        .container h2 { text-align: center;}
+        .container form { background-color: #007acc; padding: 30px 40px;
+        color: white; text-align: center;}
+        form input { border: none; width: 440px; padding: 10px; font-size: 1.2em;}
+        form .addBtn { background-color:white; color: #555; border: none; width: 60px;
+        padding: 11px; font-size: 1em; box-shadow: 2px 2px 4px black; 
+        margin-left: 10px; cursor: pointer;}
+        ul { list-style: none; margin: 0; padding: 0;}
+        ul li { background-color: #eee;  font-size: 1.1em; transition: 0.2s;
+        padding: 10px 10px 10px 40px; position: relative;}
+        ul li:nth-child(odd) { background-color: #ddd;}
+        ul li:hover { background-color: lemonchiffon; color: brown; font-weight: bold;}
+        .close { background-color: pink; opacity: 0.7; color: red; padding: 3px 12px 6px 12px; 
+        font-size: 1.5em; position: absolute; right: 0; top: 0; cursor: pointer;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>시험준비</h2>
+        <form action="">
+            <input type="text" id="item">
+            <button id="add" class="addBtn">추가</button>
+        </form>
+        <div id="itemList"></div>
+    </div>
+    <script>
+        var itemList = []
+
+        var addBtn = document.querySelector('#add')
+        addBtn.addEventListener('click', addList)
+
+        function addList() {
+            var item = document.querySelector('#item').value
+            if(item == 0) {
+                alert('준비물을 입력하세욧!')
+            } else {
+                itemList.push(item)
+                document.querySelector('#item').value = ''
+                document.querySelector('#item').focus()
+            }
+            event.preventDefault()
+            showList()
+        }
+
+        function showList() {
+            var list = '<ul>'
+            for(var i = 0; i < itemList.length; i++) {
+                list += '<li>' + itemList[i] + '<span class="close" id=' + i + '>X</span>' + '</li>'
+            }
+            list += '</ul>'
+
+            document.querySelector('#itemList').innerHTML = list
+
+            var removeList = document.querySelectorAll('.close')
+            
+            for(var i = 0; i < removeList.length; i++) {
+                removeList[i].addEventListener('click', removeItem)
+            }
+        }
+
+        function removeItem() {
+            var id = this.getAttribute('id')
+            itemList.splice(id, 1)
+            showList()
+        }
+    </script>
+</body>
+</html>
