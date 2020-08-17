@@ -17,9 +17,19 @@
         .btns_div #sel_btn {
             margin: 5px; padding: 10px;
         }
+        .selected {
+            color: green; background-color: #ccffcc; font-weight: bold;
+        }
     </style>
 </head>
 <body>
+    <form action="">
+        <input type="text" name="val" value="A1">
+        <input type="text" name="val" value="A2">
+        <input type="text" name="val" value="A4">
+        <input type="text" name="val" value="B1">
+        <input type="text" name="val" value="C1">
+    </form> <!-- 방법 2 name을 같이 주면 배열(value가 들어있는)로 받을 수 있어 보낼 수 있다 -->
     <input type="hidden3" id="allSeatCnt" value="0">
     <div class="container">
         <div id="memberContainer"></div>
@@ -28,21 +38,21 @@
     <script>
         var selectedSeats = []
 
-        function switchSeat(seat) {
+        function toggleSeat(seat) {
             var idx = selectedSeats.indexOf(seat)
-            var cnt = document.querySelector('#allSeatCnt').value
-            console.log('idx : ' + idx)
-            console.log('seat : ' + seat)
-            console.log('cnt : ' + cnt)
+            var btn = document.querySelector('#id_' + seat)
+            console.log(idx)
+            console.log(seat) // 서버에 값을 날리는 방법 1 문자열로 보낸다
 
-            if(idx == -1) {// 기존에 선택이 안 되어 있었다.
-                if(cnt > selectedSeats.length) {
-                    selectedSeats.push(seat) // 추가한다
-                } else {
-                    alert('인원을 초과했습니다.')
+            if(idx == -1) { // 기존에 선택이 안 되어 있었다.
+                if(allSeatCnt.value == selectedSeats.length) {
+                    alert('인원수를 초과했습니다.')
+                    return
                 }
-                
+                btn.classList.add('selected')
+                selectedSeats.push(seat)
             } else { // 기존에 선택이 되어 있었다.
+                btn.classList.remove('selected')
                 selectedSeats.splice(idx, 1) // 해당 인덱스로 부터 하나만 빼겠다
             }
             console.log('selectedSeats : ' + selectedSeats)
@@ -107,11 +117,16 @@
                 var divChild = document.createElement('div')
 
                 for(var i = 1; i <= colCnt; i++) {
+                    const txt = `${item}${i}`
+
                     var btn = document.createElement('button')
                     btn.setAttribute('class', 'btn')
+                    btn.setAttribute('id', 'id_' + txt)
 
-                    var txt = `${item}${i}`
-                    btn.setAttribute('onclick', `switchSeat('${txt}')`)
+                    // btn.setAttribute('onclick', `toggleSeat('${txt}')`)
+                    btn.addEventListener('click', function() { // 눌렀을 당시에 실행된다
+                        toggleSeat(txt)
+                    })
                     btn.innerText = txt
                     divChild.appendChild(btn)
                 }
