@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 페이지</title>
+    <style>
+        .container {
+            width: 600px; margin: 30px auto; border: 1px solid black;
+        }
+        .profile {
+            
+        }
+        .pro_pic {
+            width: 50px; height: 50px; border-radius: 50%; background-color: crimson;
+        }
+        .genre {
+            width: 599px; height: 100px; float: right; background-color: lightcyan;
+        }
+        .comment ul {
+            list-style-type: none; width: 500px; border: 1px solid black; clear: both;
+            padding: 20px; margin: 10px;
+        }
+        .comment ul li {
+            display: inline; margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <!-- 프로필 사진 -->
+            <div class="pro_pic">프사</div>
+            <!-- 로그인한 아이디 표시 -->
+            <p>석규환</p>
+            <!-- 나의 관심 장르 -->
+            <div class="genre">로맨스, 코메디, 학원물, 판타지, 일상</div>
+            <!-- 내가 남긴 댓글 -->
+            <div class="comment">
+                <ul>
+                    <!-- 해당 댓글에 관련 정보 -->
+                    <li id="img">썸네일</li>
+                    <li id="score">별점</li>
+                    <li id="comment">댓글</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
